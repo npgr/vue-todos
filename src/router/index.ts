@@ -25,7 +25,8 @@ const routes: Array<RouteConfig> = [
     path: "/todos/:id",
     name: "EditTodo",
     component: () => import("../views/EditTodo.vue")
-  }
+  },
+  { path: "*", redirect: "/todos" }
 ];
 
 const router = new VueRouter({
