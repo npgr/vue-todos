@@ -1,9 +1,11 @@
 <template>
   <div class="edit-todo">
-    <h2>{{ mode }} Todo</h2>
+    <div class="page-title">{{ mode }} Todo</div>
     <input name="title" type="text" autocomplete="off" v-model="todo.title" />
-    <button @click="handleSave">Save</button>
-    <button @click="handleCancel">Cancel</button>
+    <div class="btn-group">
+      <button @click="handleSave">Save</button>
+      <button @click="handleCancel">Cancel</button>
+    </div>
   </div>
 </template>
 
@@ -57,3 +59,23 @@ export default {
   }
 };
 </script>
+
+<style scoped lang="scss">
+.page-title {
+  margin-bottom: 40px;
+}
+.btn-group {
+  margin-top: 30px;
+  align-content: center;
+  & button {
+    min-width: 80px;
+    background-color: #2196f3;
+    padding: 7px;
+    color: white;
+    border: none;
+    &:first-child {
+      margin-right: 15px;
+    }
+  }
+}
+</style>

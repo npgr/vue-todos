@@ -1,26 +1,31 @@
 <template>
   <div class="todo-list">
-    <h2>Todo List</h2>
-    <div class="new-todo" @click="handleAddTodo">New Todo</div>
+    <div class="page-title">Todo List</div>
+    <div class="new-todo-btn" @click="handleAddTodo">+</div>
     <TodoFilter
       :filter="filter"
       :changeTitleFilter="changeTitleFilter"
       :changeDoneFilter="changeDoneFilter"
     />
+
     <div v-for="todo in filteredTodos" :key="todo.id" class="todo-item">
-      <input
-        type="checkbox"
-        name="done"
-        :id="todo.id"
-        :checked="todo.done"
-        @click="handleTodoDone"
-      />
-      <div>{{ todo.title }}</div>
-      <div :id="todo.id" class="delete-todo" @click="handleDeleteTodo">
-        delete
+      <div class="todo-title">
+        <input
+          type="checkbox"
+          name="done"
+          :id="todo.id"
+          :checked="todo.done"
+          @click="handleTodoDone"
+        />
+        {{ todo.title }}
       </div>
-      <div :id="todo.id" class="edit-todo" @click="handleEditTodo">
-        edit
+      <div class="opc-group">
+        <div :id="todo.id" class="delete-todo" @click="handleDeleteTodo">
+          x
+        </div>
+        <div :id="todo.id" class="edit-todo" @click="handleEditTodo">
+          edit
+        </div>
       </div>
     </div>
   </div>
@@ -66,13 +71,29 @@ export default {
 .todo-list {
   margin-top: 20px;
 }
+
 .todo-item {
+  margin-left: 100px;
+  margin-right: 100px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  line-height: 28px;
+  border-bottom: 1px solid lightgrey;
+  & .todo-title {
+    margin-left: 5px;
+    width: 200px;
+    text-align: left;
+  }
+  & .opc-group {
+    display: flex;
+  }
 }
+
 .delete-todo,
 .edit-todo {
-  color: lightblue;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #2196f3;
   margin-left: 5px;
   cursor: pointer;
   &:hover {
@@ -85,5 +106,22 @@ export default {
   &:hover {
     text-decoration: underline;
   }
+}
+.new-todo-btn {
+  display: inline-block;
+  height: 35px;
+  line-height: 35px;
+  width: 35px;
+  font-size: 1.8em;
+  font-weight: bold;
+  border-radius: 50%;
+  background-color: #2196f3;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  margin-left: 25px;
+}
+.page-title {
+  display: inline-block;
 }
 </style>

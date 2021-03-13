@@ -1,5 +1,12 @@
 <template>
   <div class="filter-todo">
+    <label for="done">Done: </label>
+    <input
+      type="checkbox"
+      name="done"
+      :checked="filter.done"
+      @click="handleChangeDone"
+    />
     <label for="title">Todo: </label>
     <input
       name="title"
@@ -7,13 +14,6 @@
       autocomplete="off"
       :value="filter.title"
       @input="handleChangeTitle"
-    />
-    <label for="done">Done: </label>
-    <input
-      type="checkbox"
-      name="done"
-      :checked="filter.done"
-      @click="handleChangeDone"
     />
   </div>
 </template>
@@ -44,7 +44,7 @@ export default {
   margin-bottom: 20px;
 }
 
-label[for="done"] {
-  margin-left: 10px;
+input[name="done"] {
+  margin-right: 20px;
 }
 </style>

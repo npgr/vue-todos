@@ -24,4 +24,14 @@ export default Vue.extend({
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.page-title {
+  font-size: 25px;
+  line-height: 50px;
+  font-weight: bold;
+}
+
+input {
+  padding: 3px;
+}
 </style>
