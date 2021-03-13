@@ -1,9 +1,20 @@
 <template>
   <div class="filter-todo">
     <label for="title">Todo: </label>
-    <input name="title" type="text" autocomplete="off" v-model="filter.title" />
+    <input
+      name="title"
+      type="text"
+      autocomplete="off"
+      :value="filter.title"
+      @input="handleChangeTitle"
+    />
     <label for="done">Done: </label>
-    <input type="checkbox" name="done" v-model="filter.done" />
+    <input
+      type="checkbox"
+      name="done"
+      :checked="filter.done"
+      @click="handleChangeDone"
+    />
   </div>
 </template>
 
@@ -13,7 +24,17 @@ import { Filter } from "@/models/Filter";
 export default {
   name: "TodoFilter",
   props: {
-    filter: Filter
+    filter: Filter,
+    changeTitleFilter: Function,
+    changeDoneFilter: Function
+  },
+  methods: {
+    handleChangeTitle(e) {
+      this.changeTitleFilter(e.target.value);
+    },
+    handleChangeDone() {
+      this.changeDoneFilter();
+    }
   }
 };
 </script>

@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import VuexPersistence from "vuex-persist";
 import { Todo } from "@/models/Todo";
 import { Filter } from "@/models/Filter";
 import getters from "@/store/getters";
@@ -18,24 +19,21 @@ const initialState: TodoState = {
     title: "",
     done: false
   },
-  todos: [
-    {
-      id: 1,
-      title: "my first todo",
-      done: true
-    },
-    {
-      id: 2,
-      title: "my second todo",
-      done: false
-    }
-  ]
+  todos: []
 };
 
-export default new Vuex.Store<TodoState>({
+const vuexLocal = new VuexPersistence<TodoState>({
+  key: "vue-todos",
+  storage: window.localStorage
+});
+
+const store = new Vuex.Store<TodoState>({
   state: initialState,
   getters: getters,
   mutations: mutations,
   actions: actions,
-  modules: {}
+  modules: {},
+  plugins: [vuexLocal.plugin]
 });
+
+export default store;
