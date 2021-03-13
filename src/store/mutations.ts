@@ -1,12 +1,6 @@
 import { TodoState } from "@/store";
 
 export default {
-  changeTitleFilter: (state: TodoState, title: string) => {
-    state.filter.title = title;
-  },
-  changeDoneFilter: (state: TodoState) => {
-    state.filter.done = !state.filter.done;
-  },
   changeTodoTitle: (
     state: TodoState,
     { id, title }: { id: number; title: string }

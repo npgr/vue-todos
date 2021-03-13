@@ -1,11 +1,7 @@
 <template>
   <div class="todo-list">
     <h2>Todo List</h2>
-    <TodoFilter
-      :filter="filter"
-      :changeTitleFilter="changeTitleFilter"
-      :changeDoneFilter="changeDoneFilter"
-    />
+    <TodoFilter :filter="filter" />
     <div v-for="todo in filteredTodos" :key="todo.id" class="todo-item">
       <input type="checkbox" name="done" :id="todo.id" v-model="todo.done" />
       <div>{{ todo.title }}</div>
@@ -31,12 +27,7 @@ export default {
     ...mapGetters(["filteredTodos"])
   },
   methods: {
-    ...mapActions([
-      "changeTitleFilter",
-      "changeDoneFilter",
-      "changeDoneTodo",
-      "deleteTodo"
-    ]),
+    ...mapActions(["changeDoneTodo", "deleteTodo"]),
     handleDeleteTodo(e) {
       const id = parseInt(e.target.id);
       this.deleteTodo(id);
