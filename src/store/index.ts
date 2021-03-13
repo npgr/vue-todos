@@ -22,14 +22,12 @@ const initialState: TodoState = {
     {
       id: 1,
       title: "my first todo",
-      done: true,
-      editing: false
+      done: true
     },
     {
       id: 2,
       title: "my second todo",
-      done: false,
-      editing: false
+      done: false
     }
   ]
 };

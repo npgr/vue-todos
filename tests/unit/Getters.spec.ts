@@ -9,9 +9,9 @@ describe("Store getters", () => {
         done: true
       },
       todos: [
-        { id: 1, title: "Apple", done: true, editing: false },
-        { id: 2, title: "Orange", done: false, editing: false },
-        { id: 3, title: "Molot", done: true, editing: false }
+        { id: 1, title: "Apple", done: true },
+        { id: 2, title: "Orange", done: false },
+        { id: 3, title: "Molot", done: true }
       ]
     };
 
