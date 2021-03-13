@@ -52,8 +52,9 @@ export default {
       if (isNaN(id)) {
         this.$router.push("/todos");
       } else {
-        this.todo = this.getTodoById(id);
-        !this.todo && this.$router.push("/todos");
+        const todo = this.getTodoById(id);
+        !todo && this.$router.push("/todos");
+        this.todo = { ...todo };
       }
     }
   }
