@@ -1,6 +1,7 @@
 <template>
   <div class="todo-list">
     <h2>Todo List</h2>
+    <div class="new-todo" @click="handleAddTodo">New Todo</div>
     <TodoFilter :filter="filter" />
     <div v-for="todo in filteredTodos" :key="todo.id" class="todo-item">
       <input type="checkbox" name="done" :id="todo.id" v-model="todo.done" />
@@ -34,6 +35,9 @@ export default {
     },
     handleEditTodo(e) {
       this.$router.push(`todos/${e.target.id}`);
+    },
+    handleAddTodo() {
+      this.$router.push("todos/new");
     }
   }
 };
@@ -52,6 +56,13 @@ export default {
   color: lightblue;
   margin-left: 5px;
   cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.new-todo {
+  cursor: pointer;
+  color: blueviolet;
   &:hover {
     text-decoration: underline;
   }

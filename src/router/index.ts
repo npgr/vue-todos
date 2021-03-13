@@ -17,6 +17,11 @@ const routes: Array<RouteConfig> = [
     component: TodoList
   },
   {
+    path: "/todos/new",
+    name: "NewTodo",
+    component: () => import("../views/EditTodo.vue")
+  },
+  {
     path: "/todos/:id",
     name: "EditTodo",
     component: () => import("../views/EditTodo.vue")

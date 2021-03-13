@@ -1,6 +1,12 @@
 import { TodoState } from "@/store";
 
 export default {
+  addTodo: (state: TodoState, title: string) => {
+    const lastId = state.todos.reduce((acc, cur) => {
+      return acc < cur.id ? cur.id : acc;
+    }, 0);
+    state.todos.push({ id: lastId + 1, title, done: false });
+  },
   changeTodoTitle: (
     state: TodoState,
     { id, title }: { id: number; title: string }
