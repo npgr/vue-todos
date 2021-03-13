@@ -7,13 +7,7 @@
       :changeDoneFilter="changeDoneFilter"
     />
     <div v-for="todo in filteredTodos" :key="todo.id" class="todo-item">
-      <input
-        type="checkbox"
-        name="done"
-        :id="todo.id"
-        :checked="todo.done"
-        @click="handleTodoDone"
-      />
+      <input type="checkbox" name="done" :id="todo.id" v-model="todo.done" />
       <div>{{ todo.title }}</div>
       <div :id="todo.id" class="delete-todo" @click="handleDeleteTodo">
         delete
@@ -43,10 +37,6 @@ export default {
       "changeDoneTodo",
       "deleteTodo"
     ]),
-    handleTodoDone(e) {
-      const id = parseInt(e.target.id);
-      this.changeDoneTodo(id);
-    },
     handleDeleteTodo(e) {
       const id = parseInt(e.target.id);
       this.deleteTodo(id);
