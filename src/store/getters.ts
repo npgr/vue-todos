@@ -11,5 +11,7 @@ export default {
       : filteredByDone.filter(({ title }) =>
           plain(title).includes(plain(filter.title))
         );
-  }
+  },
+  getTodoById: ({ todos }: TodoState) => (id: number) =>
+    todos.find(todo => todo.id === id)
 };

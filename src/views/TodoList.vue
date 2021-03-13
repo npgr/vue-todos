@@ -1,5 +1,6 @@
 <template>
   <div class="todo-list">
+    <h2>Todo List</h2>
     <TodoFilter
       :filter="filter"
       :changeTitleFilter="changeTitleFilter"
@@ -17,7 +18,9 @@
       <div :id="todo.id" class="delete-todo" @click="handleDeleteTodo">
         delete
       </div>
-      <div class="edit-todo">edit</div>
+      <div :id="todo.id" class="edit-todo" @click="handleEditTodo">
+        edit
+      </div>
     </div>
   </div>
 </template>
@@ -47,6 +50,9 @@ export default {
     handleDeleteTodo(e) {
       const id = parseInt(e.target.id);
       this.deleteTodo(id);
+    },
+    handleEditTodo(e) {
+      this.$router.push(`todos/${e.target.id}`);
     }
   }
 };
