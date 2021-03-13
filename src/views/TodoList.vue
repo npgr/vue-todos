@@ -14,7 +14,9 @@
         @click="handleTodoDone"
       />
       <div>{{ todo.title }}</div>
-      <div class="delete-todo">delete</div>
+      <div :id="todo.id" class="delete-todo" @click="handleDeleteTodo">
+        delete
+      </div>
       <div class="edit-todo">edit</div>
     </div>
   </div>
@@ -32,10 +34,19 @@ export default {
     ...mapGetters(["filteredTodos"])
   },
   methods: {
-    ...mapActions(["changeTitleFilter", "changeDoneFilter", "changeDoneTodo"]),
+    ...mapActions([
+      "changeTitleFilter",
+      "changeDoneFilter",
+      "changeDoneTodo",
+      "deleteTodo"
+    ]),
     handleTodoDone(e) {
       const id = parseInt(e.target.id);
       this.changeDoneTodo(id);
+    },
+    handleDeleteTodo(e) {
+      const id = parseInt(e.target.id);
+      this.deleteTodo(id);
     }
   }
 };

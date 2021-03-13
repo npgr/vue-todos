@@ -10,5 +10,9 @@ export default {
   changeDoneTodo: (state: TodoState, id: number) => {
     const index = state.todos.findIndex(todo => todo.id === id);
     state.todos[index].done = !state.todos[index].done;
+  },
+  deleteTodo: (state: TodoState, id: number) => {
+    const index = state.todos.findIndex(todo => todo.id === id);
+    state.todos.splice(index, 1);
   }
 };

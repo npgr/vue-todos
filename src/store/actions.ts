@@ -7,5 +7,8 @@ export default {
   },
   changeDoneTodo: ({ commit }: any, id: number) => {
     commit("changeDoneTodo", id);
+  },
+  deleteTodo: ({ commit }: any, id: number) => {
+    commit("deleteTodo", id);
   }
 };
