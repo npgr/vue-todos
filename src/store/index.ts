@@ -2,7 +2,9 @@ import Vue from "vue";
 import Vuex from "vuex";
 import { Todo } from "@/models/Todo";
 import { Filter } from "@/models/Filter";
-import { getters } from "@/store/getters";
+import getters from "@/store/getters";
+import mutations from "@/store/mutations";
+import actions from "@/store/actions";
 
 Vue.use(Vuex);
 
@@ -19,13 +21,13 @@ const initialState: TodoState = {
   todos: [
     {
       id: 1,
-      title: "do my first todo",
-      done: false,
+      title: "my first todo",
+      done: true,
       editing: false
     },
     {
       id: 2,
-      title: "do my second todo",
+      title: "my second todo",
       done: false,
       editing: false
     }
@@ -35,7 +37,7 @@ const initialState: TodoState = {
 export default new Vuex.Store<TodoState>({
   state: initialState,
   getters: getters,
-  mutations: {},
-  actions: {},
+  mutations: mutations,
+  actions: actions,
   modules: {}
 });

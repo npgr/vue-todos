@@ -1,0 +1,50 @@
+<template>
+  <div class="filter-todo">
+    <label for="title">Todo: </label>
+    <input
+      name="title"
+      type="text"
+      autocomplete="off"
+      :value="filter.title"
+      @input="handleChangeTitle"
+    />
+    <label for="done">Done: </label>
+    <input
+      type="checkbox"
+      name="done"
+      :checked="filter.done"
+      @click="handleChangeDone"
+    />
+  </div>
+</template>
+
+<script>
+import { Filter } from "@/models/Filter";
+
+export default {
+  name: "TodoFilter",
+  props: {
+    filter: Filter,
+    changeTitleFilter: Function,
+    changeDoneFilter: Function
+  },
+  methods: {
+    handleChangeTitle(e) {
+      this.changeTitleFilter(e.target.value);
+    },
+    handleChangeDone() {
+      this.changeDoneFilter();
+    }
+  }
+};
+</script>
+
+<style scoped>
+.filter-todo {
+  margin-bottom: 20px;
+}
+
+label[for="done"] {
+  margin-left: 10px;
+}
+</style>

@@ -1,5 +1,5 @@
 import { TodoState } from "@/store";
-import { getters } from "@/store/getters";
+import getters from "@/store/getters";
 
 describe("Store getters", () => {
   it("filteredTodos", () => {

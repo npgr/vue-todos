@@ -3,7 +3,7 @@ import { TodoState } from "@/store";
 
 const plain = (title: string) => title.trim().toLowerCase();
 
-export const getters = {
+export default {
   filteredTodos: ({ todos, filter }: TodoState): Todo[] => {
     const filteredByDone = todos.filter(({ done }) => done === filter.done);
     return !filter.title.trim()
