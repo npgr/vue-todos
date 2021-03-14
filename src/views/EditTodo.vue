@@ -2,8 +2,9 @@
   <div class="edit-todo">
     <div class="page-title">{{ mode }} Todo</div>
     <input name="title" type="text" autocomplete="off" v-model="todo.title" />
+    <div v-if="requiredValue" class="title-error">* Required Value</div>
     <div class="btn-group">
-      <button @click="handleSave">Save</button>
+      <button @click="handleSave" :disabled="requiredValue">Save</button>
       <button @click="handleCancel">Cancel</button>
     </div>
   </div>
@@ -29,7 +30,10 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["getTodoById"])
+    ...mapGetters(["getTodoById"]),
+    requiredValue() {
+      return !this.todo.title.trim();
+    }
   },
   methods: {
     ...mapActions(["changeTodoTitle", "addTodo"]),
@@ -74,12 +78,22 @@ export default {
     padding: 7px;
     color: white;
     border: none;
+    cursor: pointer;
     &:first-child {
       margin-right: 15px;
+    }
+    &:disabled {
+      background-color: lightgrey;
+      cursor: default;
     }
   }
 }
 input[name="title"] {
   width: 300px;
+}
+.title-error {
+  margin-top: 3px;
+  color: red;
+  font-size: 14px;
 }
 </style>
