@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/npgr/vue-todos/compare/v1.1.0...v1.2.0) (2021-03-14)
+
+
+### Features
+
+*  required todo title on edit or new todo ([cc4a3d2](https://github.com/npgr/vue-todos/commit/cc4a3d251b524d4c566f14d4250d27bd3b5aca9f))
+
+
+### Test
+
+* getters and TodoList.vue tests ([d884f89](https://github.com/npgr/vue-todos/commit/d884f897b1e2c4f86aa28720055c49b386522ef2))
+
+
+### Refactoring
+
+* Add mutationTypes file ([07c7ae8](https://github.com/npgr/vue-todos/commit/07c7ae8b599ffa282cccec9ce373592b9ec7e1bd))
+* some TodoList actions ([124a844](https://github.com/npgr/vue-todos/commit/124a84443a67d86d877d741f759850c8a3231987))
+
 ## [1.1.0](https://github.com/npgr/vue-todos/compare/v0.4.1...v1.1.0) (2021-03-14)
 
 
