@@ -66,6 +66,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "../style/variables";
+
 .page-title {
   margin-bottom: 40px;
 }
@@ -73,14 +75,14 @@ export default {
   margin-top: 30px;
   align-content: center;
   & button {
-    min-width: 80px;
-    background-color: #2196f3;
+    min-width: 150px;
+    background-color: $primary-color;
     padding: 7px;
     color: white;
     border: none;
     cursor: pointer;
     &:first-child {
-      margin-right: 15px;
+      margin-right: 30px;
     }
     &:disabled {
       background-color: lightgrey;
@@ -89,11 +91,35 @@ export default {
   }
 }
 input[name="title"] {
-  width: 300px;
+  width: 700px;
 }
+
 .title-error {
   margin-top: 3px;
-  color: red;
+  color: $error-color;
   font-size: 14px;
+}
+
+@media (max-width: $breakpoint-tablet) {
+  input[name="title"] {
+    width: 400px;
+  }
+
+  .btn-group button {
+    min-width: 120px;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  input[name="title"] {
+    width: 250px;
+  }
+
+  .btn-group button {
+    min-width: 90px;
+    &:first-child {
+      margin-right: 15px;
+    }
+  }
 }
 </style>

@@ -74,9 +74,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "../style/variables";
+
 .todo-item {
-  margin-left: 100px;
-  margin-right: 100px;
+  margin: 0 100px;
   display: flex;
   justify-content: space-between;
   line-height: 28px;
@@ -91,10 +92,22 @@ export default {
   }
 }
 
+@media (max-width: $breakpoint-tablet) {
+  .todo-item {
+    margin: 0 50px;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .todo-item {
+    margin: 0 20px;
+  }
+}
+
 .delete-todo,
 .edit-todo {
   font-weight: bold;
-  color: #2196f3;
+  color: $primary-color;
   margin-left: 7px;
   cursor: pointer;
   &:hover {
@@ -116,7 +129,7 @@ export default {
   font-size: 1.6em;
   font-weight: bold;
   border-radius: 50%;
-  background-color: #2196f3;
+  background-color: $primary-color;
   color: white;
   text-align: center;
   cursor: pointer;
