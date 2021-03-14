@@ -1,23 +1,29 @@
+import { ActionContext } from "vuex";
+import { TodoState } from "@/store";
+import MUTATION_TYPES from "@/store/mutationTypes";
+
+type TodoActionContext = ActionContext<TodoState, unknown>;
+
 export default {
-  addTodo: ({ commit }: any, title: string) => {
-    commit("addTodo", title);
+  addTodo: ({ commit }: TodoActionContext, title: string) => {
+    commit(MUTATION_TYPES.ADD_TODO, title);
   },
-  changeDoneTodo: ({ commit }: any, id: number) => {
-    commit("changeDoneTodo", id);
+  changeDoneTodo: ({ commit }: TodoActionContext, id: number) => {
+    commit(MUTATION_TYPES.CHANGE_DONE_TODO, id);
   },
-  changeTitleFilter: ({ commit }: any, title: string) => {
-    commit("changeTitleFilter", title);
+  changeTitleFilter: ({ commit }: TodoActionContext, title: string) => {
+    commit(MUTATION_TYPES.CHANGE_TITLE_FILTER, title);
   },
-  changeDoneFilter: ({ commit }: any) => {
-    commit("changeDoneFilter");
+  changeDoneFilter: ({ commit }: TodoActionContext) => {
+    commit(MUTATION_TYPES.CHANGE_DONE_FILTER);
   },
   changeTodoTitle: (
-    { commit }: any,
+    { commit }: TodoActionContext,
     { id, title }: { id: number; title: string }
   ) => {
-    commit("changeTodoTitle", { id, title });
+    commit(MUTATION_TYPES.CHANGE_TODO_TITLE, { id, title });
   },
-  deleteTodo: ({ commit }: any, id: number) => {
-    commit("deleteTodo", id);
+  deleteTodo: ({ commit }: TodoActionContext, id: number) => {
+    commit(MUTATION_TYPES.DELETE_TODO, id);
   }
 };
