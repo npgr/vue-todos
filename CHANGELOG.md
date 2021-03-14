@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.2](https://github.com/npgr/vue-todos/compare/v0.4.1...v0.4.2) (2021-03-14)
+
+
+### Features
+
+* App Header and UI improvements ([f3a8cdc](https://github.com/npgr/vue-todos/commit/f3a8cdc1ace61c67c943e64d9131234b4d89a72d))
+* redirect to /todos on 404 ([ec14539](https://github.com/npgr/vue-todos/commit/ec145392426eb206ded76c96eb5b1f2101460a39))
+
+
+### Bug Fixes
+
+* do not change store on cancel ([6640b2c](https://github.com/npgr/vue-todos/commit/6640b2cd3be3c316cf1b235735243720b83882d4))
+
 ### 0.4.1 (2021-03-13)
 
 
