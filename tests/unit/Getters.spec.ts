@@ -15,9 +15,7 @@ describe("Store getters", () => {
       ]
     };
 
-    const expectedResult = [
-      { id: 1, title: "Apple", done: true, editing: false }
-    ];
+    const expectedResult = [{ id: 1, title: "Apple", done: true }];
 
     const result = getters.filteredTodos(mockState);
 

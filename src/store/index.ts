@@ -14,7 +14,7 @@ export interface TodoState {
   todos: Todo[];
 }
 
-const initialState: TodoState = {
+export const initialState: TodoState = {
   filter: {
     title: "",
     done: false

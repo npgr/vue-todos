@@ -7,6 +7,6 @@ export default [
   {
     id: 2,
     title: "do my second todo",
-    done: false
+    done: true
   }
 ];
