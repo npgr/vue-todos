@@ -15,15 +15,23 @@
           name="done"
           :id="todo.id"
           :checked="todo.done"
-          @click="handleTodoDone"
+          @click="handleTodoDone($event.target.id)"
         />
         {{ todo.title }}
       </div>
       <div class="opc-group">
-        <div :id="todo.id" class="delete-todo" @click="handleDeleteTodo">
+        <div
+          :id="todo.id"
+          class="delete-todo"
+          @click="handleDeleteTodo($event.target.id)"
+        >
           x
         </div>
-        <div :id="todo.id" class="edit-todo" @click="handleEditTodo">
+        <div
+          :id="todo.id"
+          class="edit-todo"
+          @click="handleEditTodo($event.target.id)"
+        >
           edit
         </div>
       </div>
@@ -49,16 +57,14 @@ export default {
       "changeDoneTodo",
       "deleteTodo"
     ]),
-    handleTodoDone(e) {
-      const id = parseInt(e.target.id);
-      this.changeDoneTodo(id);
+    handleTodoDone(id) {
+      this.changeDoneTodo(parseInt(id));
     },
-    handleDeleteTodo(e) {
-      const id = parseInt(e.target.id);
-      this.deleteTodo(id);
+    handleDeleteTodo(id) {
+      this.deleteTodo(parseInt(id));
     },
-    handleEditTodo(e) {
-      this.$router.push(`todos/${e.target.id}`);
+    handleEditTodo(id) {
+      this.$router.push(`todos/${id}`);
     },
     handleAddTodo() {
       this.$router.push("todos/new");
