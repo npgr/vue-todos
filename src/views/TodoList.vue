@@ -68,10 +68,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.todo-list {
-  margin-top: 20px;
-}
-
 .todo-item {
   margin-left: 100px;
   margin-right: 100px;
@@ -79,9 +75,9 @@ export default {
   justify-content: space-between;
   line-height: 28px;
   border-bottom: 1px solid lightgrey;
+  padding-right: 5px;
   & .todo-title {
     margin-left: 5px;
-    width: 200px;
     text-align: left;
   }
   & .opc-group {
@@ -91,10 +87,9 @@ export default {
 
 .delete-todo,
 .edit-todo {
-  font-size: 1.2em;
   font-weight: bold;
   color: #2196f3;
-  margin-left: 5px;
+  margin-left: 7px;
   cursor: pointer;
   &:hover {
     text-decoration: underline;
@@ -109,10 +104,10 @@ export default {
 }
 .new-todo-btn {
   display: inline-block;
-  height: 35px;
-  line-height: 35px;
-  width: 35px;
-  font-size: 1.8em;
+  height: 30px;
+  line-height: 30px;
+  width: 30px;
+  font-size: 1.6em;
   font-weight: bold;
   border-radius: 50%;
   background-color: #2196f3;

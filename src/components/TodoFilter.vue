@@ -1,13 +1,11 @@
 <template>
   <div class="filter-todo">
-    <label for="done">Done: </label>
     <input
       type="checkbox"
       name="done"
       :checked="filter.done"
       @click="handleChangeDone"
     />
-    <label for="title">Todo: </label>
     <input
       name="title"
       type="text"
@@ -46,5 +44,9 @@ export default {
 
 input[name="done"] {
   margin-right: 20px;
+}
+
+input[name="title"] {
+  width: 200px;
 }
 </style>

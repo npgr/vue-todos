@@ -79,4 +79,7 @@ export default {
     }
   }
 }
+input[name="title"] {
+  width: 300px;
+}
 </style>
